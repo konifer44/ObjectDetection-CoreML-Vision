@@ -7,19 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E7F2FAA4252C89E50048A22B /* MLObjectDetectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F2FAA3252C89E50048A22B /* MLObjectDetectionApp.swift */; };
+		E700E3DE253082E600CD9522 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E700E3DB253082E600CD9522 /* CameraViewController.swift */; };
+		E700E3F425308E8300CD9522 /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E700E3F325308E8300CD9522 /* YOLOv3Int8LUT.mlmodel */; };
+		E700E3FF2531D82900CD9522 /* RecognizedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E700E3FE2531D82900CD9522 /* RecognizedPhotoView.swift */; };
+		E700E44325348CE700CD9522 /* MLObjectDetectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E700E44225348CE700CD9522 /* MLObjectDetectionApp.swift */; };
+		E7575333253714A900B30F18 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E7575332253714A900B30F18 /* SqueezeNet.mlmodel */; };
 		E7F2FAA6252C89E50048A22B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F2FAA5252C89E50048A22B /* ContentView.swift */; };
 		E7F2FAA8252C89E90048A22B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F2FAA7252C89E90048A22B /* Assets.xcassets */; };
 		E7F2FAAB252C89E90048A22B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F2FAAA252C89E90048A22B /* Preview Assets.xcassets */; };
+		E7F2FABD252C925E0048A22B /* ImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F2FABC252C925E0048A22B /* ImageClassification.swift */; };
+		E7F2FAC6252D31AB0048A22B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F2FAC5252D31AA0048A22B /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E700E3DB253082E600CD9522 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		E700E3F325308E8300CD9522 /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
+		E700E3FE2531D82900CD9522 /* RecognizedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedPhotoView.swift; sourceTree = "<group>"; };
+		E700E44225348CE700CD9522 /* MLObjectDetectionApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLObjectDetectionApp.swift; sourceTree = "<group>"; };
+		E7575332253714A900B30F18 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		E7F2FAA0252C89E50048A22B /* MLObjectDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLObjectDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7F2FAA3252C89E50048A22B /* MLObjectDetectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLObjectDetectionApp.swift; sourceTree = "<group>"; };
 		E7F2FAA5252C89E50048A22B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E7F2FAA7252C89E90048A22B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7F2FAAA252C89E90048A22B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7F2FAAC252C89E90048A22B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7F2FABC252C925E0048A22B /* ImageClassification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClassification.swift; sourceTree = "<group>"; };
+		E7F2FAC5252D31AA0048A22B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +45,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E700E3F82531B65200CD9522 /* ImageDetection */ = {
+			isa = PBXGroup;
+			children = (
+				E7F2FABC252C925E0048A22B /* ImageClassification.swift */,
+				E7F2FAC5252D31AA0048A22B /* ImagePicker.swift */,
+			);
+			path = ImageDetection;
+			sourceTree = "<group>";
+		};
+		E700E3FA2531B66600CD9522 /* LiveCaptureDetection */ = {
+			isa = PBXGroup;
+			children = (
+				E700E3FC2531B6D900CD9522 /* MLModels */,
+				E700E3DB253082E600CD9522 /* CameraViewController.swift */,
+			);
+			path = LiveCaptureDetection;
+			sourceTree = "<group>";
+		};
+		E700E3FC2531B6D900CD9522 /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				E700E3F325308E8300CD9522 /* YOLOv3Int8LUT.mlmodel */,
+				E7575332253714A900B30F18 /* SqueezeNet.mlmodel */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
 		E7F2FA97252C89E50048A22B = {
 			isa = PBXGroup;
 			children = (
@@ -52,8 +91,11 @@
 		E7F2FAA2252C89E50048A22B /* MLObjectDetection */ = {
 			isa = PBXGroup;
 			children = (
-				E7F2FAA3252C89E50048A22B /* MLObjectDetectionApp.swift */,
+				E700E44225348CE700CD9522 /* MLObjectDetectionApp.swift */,
+				E700E3F82531B65200CD9522 /* ImageDetection */,
+				E700E3FA2531B66600CD9522 /* LiveCaptureDetection */,
 				E7F2FAA5252C89E50048A22B /* ContentView.swift */,
+				E700E3FE2531D82900CD9522 /* RecognizedPhotoView.swift */,
 				E7F2FAA7252C89E90048A22B /* Assets.xcassets */,
 				E7F2FAAC252C89E90048A22B /* Info.plist */,
 				E7F2FAA9252C89E90048A22B /* Preview Content */,
@@ -139,7 +181,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7F2FAA6252C89E50048A22B /* ContentView.swift in Sources */,
-				E7F2FAA4252C89E50048A22B /* MLObjectDetectionApp.swift in Sources */,
+				E7575333253714A900B30F18 /* SqueezeNet.mlmodel in Sources */,
+				E700E3F425308E8300CD9522 /* YOLOv3Int8LUT.mlmodel in Sources */,
+				E7F2FAC6252D31AB0048A22B /* ImagePicker.swift in Sources */,
+				E700E3FF2531D82900CD9522 /* RecognizedPhotoView.swift in Sources */,
+				E7F2FABD252C925E0048A22B /* ImageClassification.swift in Sources */,
+				E700E3DE253082E600CD9522 /* CameraViewController.swift in Sources */,
+				E700E44325348CE700CD9522 /* MLObjectDetectionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
