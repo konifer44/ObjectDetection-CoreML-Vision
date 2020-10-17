@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct RecognizedPhotoView: View {
-    @State var image: Image?
-    @State var topIdentifier = ""
+   // @State var image: Image?
+    // @State var topIdentifier = ""
+    @EnvironmentObject var coreML:  ImageClassification
+    
     var body: some View {
         VStack {
-            image?
-                .resizable()
-                .scaledToFit()
-                .padding()
-            if topIdentifier.isEmpty {
-                Text("Sorry I Cant recognize :(")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .font(.system(size: 20))
+            if coreML.classifiedImage == nil {
+                ProgressView("Proccesing…")
             } else {
-                Text("I think this is: \(topIdentifier)")
+                coreML.classifiedImage?
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+                    
+                
+                Text("I think this is: \(coreML.topIdentifier)")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .font(.system(size: 20))
+                    .padding(.horizontal)
             }
-           
+
         }
     }
 }

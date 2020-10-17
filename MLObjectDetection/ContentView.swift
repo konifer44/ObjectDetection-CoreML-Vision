@@ -46,20 +46,13 @@ enum ActiveSheet: Identifiable {
 }
 
 struct ContentView: View {
-    @ObservedObject var coreML  = ImageClassification()
+    @StateObject var coreML  = ImageClassification()
     @State private var inputImage: UIImage?
-    @State private var image: Image?
-    @State private var topIdentifier = ""
     @State var activeSheet: ActiveSheet?
-    @State var resultSheetIsPresented = false
     
     func loadImage() {
-        print("Load image")
         guard let inputImage = inputImage else { return }
-        self.image = Image(uiImage: inputImage)
         coreML.classifyImage(inputImage)
-        print(coreML.topIdentifier)
-        self.topIdentifier = coreML.topIdentifier
         activeSheet = .resultSheet
     }
     
@@ -113,8 +106,7 @@ struct ContentView: View {
                     case .photoGallerySheet:
                         ImagePicker(image: self.$inputImage).onDisappear(perform: loadImage)
                     case .resultSheet:
-                        RecognizedPhotoView(image: self.image, topIdentifier: self.topIdentifier)
-                        
+                        RecognizedPhotoView().environmentObject(coreML)
                     }
                 }
             }

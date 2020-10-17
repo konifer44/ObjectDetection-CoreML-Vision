@@ -9,11 +9,21 @@ import Foundation
 import CoreML
 import Vision
 import UIKit
+import SwiftUI
+import Combine
 
 class ImageClassification: ObservableObject {
+    let objectWillChange = ObservableObjectPublisher()
+    
     @Published var topClassifications: [(confidence: VNConfidence, identifier: String)]
     @Published var topIdentifiers: [String]
     @Published var topIdentifier: String
+    var classifiedImage: Image? {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+ 
     init() {
         topClassifications = [(confidence: 0.0, identifier: "")]
         topIdentifiers = [String]()
@@ -37,6 +47,7 @@ class ImageClassification: ObservableObject {
     }()
     
     func classifyImage(_ image: UIImage) {
+        
         guard let orientation = CGImagePropertyOrientation(
                 rawValue: UInt32(image.imageOrientation.rawValue)) else {
             return
@@ -50,12 +61,14 @@ class ImageClassification: ObservableObject {
                 VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
             do {
                 try handler.perform([self.classificationRequest])
+                self.classifiedImage = Image(uiImage: image)
             } catch {
                 print("Failed to perform classification.\n\(error.localizedDescription)")
             }
-        }
+       }
     }
     
+   
     func processClassifications(for request: VNRequest, error: Error?) {
         DispatchQueue.main.async {
             if let classifications = request.results as? [VNClassificationObservation] {
