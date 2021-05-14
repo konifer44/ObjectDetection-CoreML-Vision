@@ -2,7 +2,7 @@
 
 >In this project Im using CoreML and Vision to detect object from photos imported form photo gallery or live capture using iPhone camera. 
 
-- Choose photo with ImagePicker(To integrate UIKit and SwiftUI im using UIViewRepresentable) 
+- Choose photo with ImagePicker(UIViewRepresentable used to integrate UIKit and SwiftUI) 
 - CoreML proccesing it and returns array with detected objects and confidence. 
 - In the second case the Vision framework can recognize objects in live capture.
 - Vision requests made with a CoreML model return results as VNRecognizedObjectObservation objects, which identify objects found in the captured scene and also returning it coordinates.
